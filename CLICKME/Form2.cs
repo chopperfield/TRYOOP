@@ -58,12 +58,26 @@ namespace TRYOOP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("X");
+            System.Collections.Generic.List<Polymorph> shapes = new System.Collections.Generic.List<Polymorph>();
+            shapes.Add(new Rectangle());
+            shapes.Add(new Triangle());
+            shapes.Add(new Circle());
+
+            // Polymorphism at work #2: the virtual method Draw is
+            // invoked on each of the derived classes, not the base class.
+            foreach (Polymorph s in shapes)
+            {
+                s.Draw();
+            }
+
+            // Keep the console open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ASD");
+
         }
     }
 }
