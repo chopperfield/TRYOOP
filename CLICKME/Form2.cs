@@ -55,5 +55,10 @@ namespace TRYOOP
             MessageBox.Show(change.test1("hi"));
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ADSASD");
+        }
     }
 }
