@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraSplashScreen;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace TRYOOP
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+                 
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -46,6 +47,7 @@ namespace TRYOOP
         {
             Person person1 = new Person();
             MessageBox.Show(person1.name);
+            
 
             person1.SetName("John Smith");
             MessageBox.Show(person1.name);
@@ -97,7 +99,47 @@ namespace TRYOOP
         private void button7_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-                f2.Show();
+            MyClass myClass = new MyClass();
+            myClass.ChangeBackgroundColor(f2);
+
+            f2.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            colorPickEdit1.Color = Color.FromArgb(Convert.ToInt32(textEdit1.Text));
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            textEdit1.Text = colorPickEdit1.Color.ToArgb().ToString();
+        }
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            textBox1.Text = e.Location.X.ToString();
+            textBox2.Text = e.Location.Y.ToString();
+
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.X == 10 && e.Y == 10)
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        int count = 0;
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (count == 4) this.Close();
+            count++;
+            String[] strpleaseloop = { "Monday", "Tuesday", "Wednesday" };
+            Random r = new Random();
+            int iSelect = r.Next(0,3);
+           
+            textBox1.Text = strpleaseloop[iSelect];
+        }
+
+
     }
 }
